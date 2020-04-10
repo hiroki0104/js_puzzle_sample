@@ -4,14 +4,15 @@
   window.addEventListener('load', () => {
     init()
   })
+
   function init() {
-    let table = document.getElementById('table')
+    const table = document.getElementById('table')
     for (let i = 0; i < 4; ++i) {
-      let tr = document.createElement('tr')
+      const tr = document.createElement('tr')
 
       for (let j = 0; j < 4; ++j) {
-        let td = document.createElement('td')
-        let index = i * 4 + j
+        const td = document.createElement('td')
+        const index = i * 4 + j
         td.className = 'tile'
         td.index = index
         td.value = index
@@ -24,15 +25,13 @@
       table.appendChild(tr)
     }
 
-    console.log(tiles)
-
     for (let i = 0; i < 1000; ++i) {
       click({ srcElement: { index: Math.floor(Math.random() * 16) } })
     }
   }
 
   function click(e) {
-    let i = e.srcElement.index
+    const i = e.srcElement.index
 
     if (i - 4 >= 0 && tiles[i - 4].value === 0) {
       swap(i, i - 4)
